@@ -1,0 +1,30 @@
+<div class="row m-0 justify-content-center align-items-center">
+    <div class="col-md-6 col-auto p-5">  
+        <h1>Registrate</h1>
+        <%= link_to "¿Ya tenes una cuenta? Ingresá.", login_path %>
+        <%= form_with model: @user, url: signup_path do |form| %> 
+            <%= render "layouts/msj_errores", form: form %>
+            
+            <div class="mb-3">
+                <%= form.label :nombre %>
+                <%= form.text_field :nombre, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :mail %>
+                <%= form.email_field :mail, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :password, "Contraseña" %>
+                <%= form.password_field :password, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :password_confirmation, "Confirmar contraseña" %>
+                <%= form.password_field :password_confirmation, class:"form-control" %>
+            </div>
+            <%= form.submit "Crear mi cuenta", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

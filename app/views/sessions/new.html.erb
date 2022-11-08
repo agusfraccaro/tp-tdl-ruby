@@ -1,0 +1,22 @@
+<div class="row m-0 justify-content-center align-items-center">
+    <div class="col-md-6 col-auto p-5">
+        <h1>Iniciar Sesión</h1>
+        <%= form_with url: login_path do |form| %>
+        <div class="mb-3">
+            <%= form.label :mail %>
+            <%= form.text_field :mail, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.label :password, "Contraseña" %>
+            <%= form.password_field :password, class: "form-control" %>
+            <%= link_to "¿Olvidaste tu contraseña?", password_reset_path %>
+            <%= link_to "¿No tenes una cuenta? Registrate.", signup_path, style: 'float:right' %> 
+        </div>
+
+        <div class="mb-3">
+            <%= form.submit "Ingresar", class: "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+</div>

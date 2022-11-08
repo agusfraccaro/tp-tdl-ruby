@@ -1,0 +1,6 @@
+Hola <%= params[:user].nombre %>, <br>
+
+Alguien solicitó un cambio de contraseña para esta cuenta.
+
+Si fuiste vos, clickeá el link debajo para resetear tu contraseña. El link expirará luego de 15 minutos.
+<%= link_to "Cambiar contraseña", password_reset_edit_url(token: @token) %>
