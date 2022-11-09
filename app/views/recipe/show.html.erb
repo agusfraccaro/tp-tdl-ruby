@@ -1,2 +1,5 @@
-<h1>Recipe#show</h1>
-<p>Find me in app/views/recipe/show.html.erb</p>
+<% Actual.user.recipes.each do |receta| %>
+    <div>
+        <image src="<%= url_for(receta.image) %>" height=200>
+    </div>
+<% end %>

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'cookpedia', to: 'recipe#index'
   get 'cookpedia/nueva_receta', to: 'recipe#new'
-  post 'cookpedia/nueva_receta', to: 'recipe#update'
+  post 'cookpedia/nueva_receta', to: 'recipe#create'
   get 'cookpedia/mis_recetas', to: 'recipe#show'
 
   resources :users

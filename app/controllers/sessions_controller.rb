@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         puts user
         if user.present? && user.authenticate(params[:password])
             session[:user_id] = user.id
-            redirect_to root_path
+            redirect_to cookpedia_path
         else 
             flash[:alert] = "Mail o contraseña inválidos."
             render :new
