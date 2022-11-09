@@ -1,0 +1,25 @@
+<div class="row m-0 justify-content-center align-items-center">
+    <div class="col-md-6 col-auto p-5">  
+        <h1> Nueva Receta</h1>
+        <%= form_with model: @recipe, url: cookpedia_nueva_receta_path do |form| %> 
+            <%= render "layouts/msj_errores", form: form %>
+            
+            <div class="mb-3">
+                <%= form.label :nombre, "Nombre de la Receta" %>
+                <%= form.text_field :nombre, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :descripcion, "Paso a paso" %>
+                <%= form.text_area :descripcion, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :imagen, "Foto" %>
+                <%= form.file_field :imagen, accept:"image/jpg, image/jpeg" %>
+            </div>
+            
+            <%= form.submit "Crear receta", class: "btn btn-primary" %>
+        <% end %>
+    </div>
+</div>

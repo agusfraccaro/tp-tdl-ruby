@@ -3,13 +3,10 @@
         <h1>Bienvenido a Cookpedia</h1>
         <%= link_to "Sobre Cookpedia", about_path  %>
     </div>
-    <% if Actual.user %>
-        <%= link_to "Nueva Receta", recetas_crear_receta_path, class: "btn btn-lg btn-primary" %>
-    <% else %>
-        <%= link_to "Inicia Sesión!", login_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "Registrate!", signup_path, class: "btn btn-lg btn-primary" %>
-    <% end %>
     
+    <%= link_to "Inicia Sesión!", login_path, class: "btn btn-lg btn-primary" %>
+    <%= link_to "Registrate!", signup_path, class: "btn btn-lg btn-primary" %>
+
 </div>
 
 <% if @user %>

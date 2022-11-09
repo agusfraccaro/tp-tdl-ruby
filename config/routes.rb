@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'recetas/new'
-  get 'recetas/edit'
+  get 'cookpedia', to: 'recipe#index'
+  get 'cookpedia/nueva_receta', to: 'recipe#new'
+  post 'cookpedia/nueva_receta', to: 'recipe#update'
+  get 'cookpedia/mis_recetas', to: 'recipe#show'
+
   resources :users
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
@@ -14,9 +17,6 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'password_reset#create'
   get 'password/reset/edit', to: 'password_reset#edit'
   patch 'password/reset/edit', to: 'password_reset#update'
-
-  get 'recetas/crear_receta', to: 'recetas#new'
-  post 'recetas/crear_receta', to: 'recetas#create'
 
   root 'home#index'
   get 'about', to: "home#about"
