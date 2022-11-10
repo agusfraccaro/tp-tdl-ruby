@@ -1,0 +1,26 @@
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center img-columns"></th>
+                <th class="text-center nombre-columns">Nombre</th>
+                <th class="text-center descripcion-columns">Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% recipes.each do |recipe| %>
+                <tr> 
+                    <td> <image src="<%= url_for(recipe.image) %>" height=100> </td>
+                    <td> <%= recipe.nombre %> </td>
+                    <td> <%= recipe.descripcion %> </td>
+                    <% if buttons %>
+                        <td>
+                            <%= link_to "Editar", edit_recipe_path(recipe), class: "btn btn-warning" %>
+                            <%= button_to "Eliminar", recipe , method: :delete, class: "btn btn-danger" %>
+                        </td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
