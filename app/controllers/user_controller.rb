@@ -13,8 +13,25 @@ class UserController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      redirect_to cookpedia_path, notice: 'Usuario actualizado correctamente.'
+    else
+      render :new, notice: 'Hubo un error al editar el usuario.'
+    end
+  end
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    User.find_by(id: session[:user_id]).destroy
+    redirect_to root_path
   end
 
   private

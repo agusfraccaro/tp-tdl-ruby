@@ -1,7 +1,7 @@
 <div class="row m-0 justify-content-center align-items-center">
     <div class="col-md-6 col-auto p-5">  
-        <h1> Nueva Receta</h1>
-        <%= form_with model: @recipe, url: new_recipe_path do |form| %> 
+        <h1> Editar Receta</h1>
+        <%= form_with model: @recipe, url: edit_recipe_path do |form| %> 
             <%= render "layouts/msj_errores", form: form %>
             
             <div class="mb-3">
@@ -19,7 +19,9 @@
                 <%= form.file_field :image, accept:"image/jpg, image/jpeg" %>
             </div>
             
-            <%= form.button "Crear receta", method: :post, class: "btn btn-primary" %>
+            <%= form.submit "Guardar cambios", class: "btn btn-primary" %>
+            <%= link_to "Cancelar", recipe_index_path, method: :get, class:"btn btn-danger" %>
         <% end %>
+        
     </div>
 </div>

@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
-  get 'cookpedia', to: 'recipe#index'
-  get 'cookpedia/nueva_receta', to: 'recipe#new'
-  post 'cookpedia/nueva_receta', to: 'recipe#create'
-  get 'cookpedia/mis_recetas', to: 'recipe#show'
+  get 'cookpedia', to: 'cookpedia#index'
+
+  # get 'cookpedia/nueva_receta', to: 'recipe#new'
+  post 'recipe/new', to: 'recipe#create'
+  patch 'recipe/:id/edit', to: 'recipe#update'
+  # get 'mis_recetas', to: 'recipe#index'
+  # delete 'mis_recetas/:id', to: 'recipe#destroy'
+  # get 'cookpedia/edit_receta', to: 'recipe#edit'
+  # post 'cookpedia/edit_receta', to: 'recipe#update'
+  # delete 'cookpedia/mis_recetas', to: 'recipe#destroy'
+
+  resources :recipe
 
   resources :users
   get 'login', to: 'sessions#new'
@@ -11,7 +19,9 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'user#new'
   post 'signup', to: 'user#create'
-  get 'show', to: 'user#show'
+  get 'perfil', to: 'user#show'
+  get 'perfil/edit', to: 'user#edit'
+  post 'perfil/edit', to: 'user#update'
 
   get 'password/reset', to: 'password_reset#new'
   post 'password/reset', to: 'password_reset#create'
