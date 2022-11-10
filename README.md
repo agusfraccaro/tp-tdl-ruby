@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Trabajo Práctico Final de la materia Teoría de Lenguaje (75.31) de la Facultad de Ingeniería UBA.
 
-Things you may want to cover:
+Cookpedia es una aplicación web que permite al usuario conectado para buscar y puntuar/comentar recetas de otros usuarios, y también subir y gestionar tus propias recetas.
 
-* Ruby version
+Este trabajo práctico fue realizado con el framework en Ruby on Rails.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
