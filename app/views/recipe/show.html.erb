@@ -14,10 +14,11 @@
     </div>
 
     <div class="col-sm-6">
+        <h3>Comentarios: </h3>
         <% @recipe.comments.each do |comment| %>
-            <div>
-                <%= comment.body %>
-            </div>
+            <ul class="list-group" >
+                <%= render 'comments/comment', comment: comment %>
+            </ul>
         <% end %>
     </div>
 </div>
