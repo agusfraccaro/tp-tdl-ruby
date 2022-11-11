@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'cookpedia', to: 'cookpedia#index'
+  get 'cookpedia', to: 'cookpedia#index'  
 
   # get 'cookpedia/nueva_receta', to: 'recipe#new'
   post 'recipe/new', to: 'recipe#create'
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   # post 'cookpedia/edit_receta', to: 'recipe#update'
   # delete 'cookpedia/mis_recetas', to: 'recipe#destroy'
 
-  resources :recipe
+  resources :recipe do
+    resources :comentario
+  end
 
   resources :users
   get 'login', to: 'sessions#new'
