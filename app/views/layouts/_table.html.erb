@@ -11,7 +11,13 @@
             <% recipes.each do |recipe| %>
                 <tr> 
                     <td> <image src="<%= url_for(recipe.image) %>" height=100> </td>
-                    <td> <%= recipe.nombre %> </td>
+                    <td> 
+                        <% if !buttons%>
+                            <%= link_to recipe.nombre, recipe_path(recipe) %>
+                        <% else %>
+                            <%= recipe.nombre %>
+                        <% end %>
+                    </td>
                     <td> <%= recipe.descripcion %> </td>
                     <% if buttons %>
                         <td>

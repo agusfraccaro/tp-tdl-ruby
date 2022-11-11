@@ -20,7 +20,6 @@ class RecipeController < ApplicationController
   end
 
   def edit
-    @id = params[:id]
   end
 
   def update
@@ -29,6 +28,10 @@ class RecipeController < ApplicationController
     else
       render :new, notice: 'Hubo un error al editar la receta.'
     end
+  end
+
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
   end
 
   def destroy

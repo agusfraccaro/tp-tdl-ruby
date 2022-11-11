@@ -1,4 +1,8 @@
 class ComentariosController < ApplicationController
+    paginates_per 5
+    def new
+    end
+
     def create
     end
 
