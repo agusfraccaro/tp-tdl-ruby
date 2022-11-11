@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :recipes
-    has_many :comentarios
+    has_many :comments
     has_secure_password
     before_save {self.mail = mail.downcase}
     validates :nombre, presence: true, length: {minimum:3, maximum:30}

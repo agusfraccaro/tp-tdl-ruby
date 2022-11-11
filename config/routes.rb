@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+  get 'comments/show'
+  get 'comments/create'
   get 'cookpedia', to: 'cookpedia#index'  
 
   # get 'cookpedia/nueva_receta', to: 'recipe#new'
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   # delete 'cookpedia/mis_recetas', to: 'recipe#destroy'
 
   resources :recipe do
-    resources :comentario
+    resources :comments
   end
 
   resources :users
