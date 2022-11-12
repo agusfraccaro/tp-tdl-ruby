@@ -22,11 +22,8 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  get 'signup', to: 'user#new'
-  post 'signup', to: 'user#create'
-  get 'perfil', to: 'user#show'
-  get 'perfil/edit', to: 'user#edit'
-  post 'perfil/edit', to: 'user#update'
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
 
   get 'password/reset', to: 'password_reset#new'
   post 'password/reset', to: 'password_reset#create'

@@ -1,0 +1,25 @@
+<%= form_with model: user, url: path do |form| %> 
+    <%= render "layouts/msj_errores", form: form %>
+    
+    <div class="mb-3">
+        <%= form.label :nombre %>
+        <%= form.text_field :nombre, class:"form-control" %>
+    </div>
+    
+    <div class="mb-3">
+        <%= form.label :mail %>
+        <%= form.email_field :mail, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :password, "Contraseña" %>
+        <%= form.password_field :password, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :password_confirmation, "Confirmar Contraseña" %>
+        <%= form.password_field :password_confirmation, class:"form-control" %>
+    </div>
+    <%= form.button "Guardar", method: :post, class: "btn btn-primary" %>
+    <%= link_to "Cancelar", cookpedia_path, method: :get, class:"btn btn-danger" %>
+<% end %>

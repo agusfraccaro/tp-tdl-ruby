@@ -1,0 +1,21 @@
+<%= form_with model: recipe, url: path do |form| %> 
+    <%= render "layouts/msj_errores", form: form %>
+    
+    <div class="mb-3">
+        <%= form.label :nombre, "Nombre de la Receta" %>
+        <%= form.text_field :nombre, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :content, "Paso a paso" %>
+        <%= form.rich_text_area :content, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :image, "Foto de la Receta" %>
+        <%= form.file_field :image, accept:"image/jpg, image/jpeg" %>
+    </div>
+    
+    <%= form.submit "Guardar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", recipe_index_path, method: :get, class:"btn btn-danger" %>
+<% end %>

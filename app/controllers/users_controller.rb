@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -13,6 +13,7 @@ class UserController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(id: params[:id])
   end
 
   def update
