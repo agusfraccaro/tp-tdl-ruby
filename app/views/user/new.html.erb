@@ -2,7 +2,7 @@
     <div class="col-md-6 col-auto p-5">  
         <h1>Registrate</h1>
         <%= link_to "¿Ya tenes una cuenta? Ingresá.", login_path %>
-        <%= form_with model: @user, url: cookpedia_nueva_receta_path do |form| %> 
+        <%= form_with model: @user, url: signup_path do |form| %> 
             <%= render "layouts/msj_errores", form: form %>
             
             <div class="mb-3">
@@ -11,12 +11,22 @@
             </div>
             
             <div class="mb-3">
-                <%= form.label :desripcion %>
-                <%= form.text_area :desripcion, class:"form-control" %>
+                <%= form.label :mail %>
+                <%= form.email_field :mail, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :password, "Contraseña" %>
+                <%= form.password_field :password, class:"form-control" %>
+            </div>
+
+            <div class="mb-3">
+                <%= form.label :password_confirmation, "Confirmar Contraseña" %>
+                <%= form.password_field :password_confirmation, class:"form-control" %>
             </div>
 
             
-            <%= form.submit "Crear receta", class: "btn btn-primary" %>
+            <%= form.button "Crear mi cuenta", method: :post, class: "btn btn-primary" %>
         <% end %>
     </div>
 </div>
