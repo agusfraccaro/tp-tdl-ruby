@@ -2,3 +2,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+import "trix"
+import "@rails/actiontext"
