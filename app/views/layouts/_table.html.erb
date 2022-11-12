@@ -5,6 +5,7 @@
                 <th class="text-center img-columns"></th>
                 <th class="text-center nombre-columns">Nombre</th>
                 <th class="text-center descripcion-columns">Descripción</th>
+                <th class="text-center tags-columns">Categorías</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,21 @@
                         <% end %>
                     </td>
                     <td> <%= recipe.content %> </td>
+                    <td> 
+                        <% recipe.tags.each do |tag| %> 
+                            <%
+=begin%>
+ <%= link_to tag %> 
+<%
+=end%>
+                                <span class="tag"> <%= tag.name.capitalize %> </span>
+                            <%
+=begin%>
+ <% end %> 
+<%
+=end%>
+                        <% end %>
+                    </td>
                     <% if buttons %>
                         <td>
                             <%= link_to "Editar", edit_recipe_path(recipe), class: "btn btn-warning" %>

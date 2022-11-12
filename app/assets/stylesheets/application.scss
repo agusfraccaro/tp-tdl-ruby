@@ -13,12 +13,23 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 
- .img-columns{
-    width: 10%
- }
+.img-columns{
+   width: 10%
+}
 
- .nombre-columns{
-    width: 40%
- }
+.nombre-columns{
+   width: 40%
+}
+
+.tag {
+   background: lightcoral;
+   color: black;
+   padding: 0.5em;
+   margin: 0,5em;
+   border-radius: 25%;
+   display: inline-block;
+}
+
+

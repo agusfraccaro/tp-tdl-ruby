@@ -11,7 +11,8 @@ class RecipeController < ApplicationController
   end
 
   def create
-    @recipe = Actual.user.recipes.new(recipe_params)
+    @recipe = Actual.user.recipes.new(recipe_params.except(:tags))
+    create_or_delete_recipe_tags(@recipe, params[:recipe][:tag])
     if @recipe.save
       redirect_to cookpedia_path, notice: "Receta creada satisfactoriamente"
     else
@@ -23,7 +24,8 @@ class RecipeController < ApplicationController
   end
 
   def update
-    if @recipe.update(recipe_params)
+    create_or_delete_recipe_tags(@recipe, params[:recipe][:tag])
+    if @recipe.update(recipe_params.except(:tags))
       redirect_to cookpedia_path, notice: 'Receta actualizada correctamente.'
     else
       render :new, notice: 'Hubo un error al editar la receta.'
@@ -41,8 +43,15 @@ class RecipeController < ApplicationController
 
   private
 
+  def create_or_delete_recipe_tags(recipe, tags)
+    recipe.taggables.destroy_all
+    tags = tags.strip.split(',')
+    tags.each do |tag|
+      recipe.tags << Tag.find_or_create_by(name: tag)
+    end
+  end
   def recipe_params
-    params.require(:recipe).permit(:nombre, :content, :image, :user_id)
+    params.require(:recipe).permit(:nombre, :content, :image, :user_id, :tags)
   end
 
   def set_receta

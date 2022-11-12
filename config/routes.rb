@@ -1,17 +1,9 @@
 Rails.application.routes.draw do
-  get 'comments/new'
-  get 'comments/show'
-  get 'comments/create'
+  resources :tags
   get 'cookpedia', to: 'cookpedia#index'  
 
-  # get 'cookpedia/nueva_receta', to: 'recipe#new'
   post 'recipe/new', to: 'recipe#create'
   patch 'recipe/:id/edit', to: 'recipe#update'
-  # get 'mis_recetas', to: 'recipe#index'
-  # delete 'mis_recetas/:id', to: 'recipe#destroy'
-  # get 'cookpedia/edit_receta', to: 'recipe#edit'
-  # post 'cookpedia/edit_receta', to: 'recipe#update'
-  # delete 'cookpedia/mis_recetas', to: 'recipe#destroy'
 
   resources :recipe do
     resources :comments
