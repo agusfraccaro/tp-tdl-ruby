@@ -1,6 +1,8 @@
 <div class="row m-0 justify-content-center align-items-center">
     <div class="col-md-6 col-auto p-5">  
         <h1> Perfil </h1>
-        <%= link_to "Editar Perfil", edit_user_path, class: 'btn btn-primary' %>
+        <%= link_to edit_user_path, class: 'btn btn-primary' do %>
+            <i class="bi bi-pencil-square"></i>
+        <% end %>
     </div>
 </div>
