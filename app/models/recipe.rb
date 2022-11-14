@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   has_rich_text :content
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   has_many :comments
   has_many :taggables, dependent: :destroy
   has_many :tags, through: :taggables
