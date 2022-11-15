@@ -6,6 +6,10 @@
                 <th class="text-center nombre-columns">Nombre</th>
                 <th class="text-center descripcion-columns">Descripción</th>
                 <th class="text-center tags-columns">Categorías</th>
+                <% if buttons %>
+                    <th>Acciones </th> 
+                <% end %>
+                <th>Likes </th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +39,9 @@
                             <% end %>
                         </td>
                     <% end %>
+                    <td>
+                        <%= recipe.likes.count %>
+                    </td>
                 </tr>
             <% end %>
         </tbody>
