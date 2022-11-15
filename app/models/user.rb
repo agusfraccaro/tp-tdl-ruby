@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-    has_many :recipes
-    has_many :comments
+    has_many :recipes, dependent: :destroy
+    has_many :comments,  dependent: :destroy
+    has_many :likes, dependent: :destroy
     has_secure_password
     before_save {self.mail = mail.downcase}
     validates :nombre, presence: true, length: {minimum:3, maximum:30}

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  post "/recipes/:id/like", to: "recipe#like", as: "like"
+  delete "/recipes/:id/like", to: "recipe#unlike", as: "unlike"
+
   resources :users
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

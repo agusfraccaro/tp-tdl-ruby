@@ -41,6 +41,23 @@ class RecipeController < ApplicationController
     redirect_to cookpedia_path, notice: "Receta eliminada satisfactoriamente"
   end
 
+  def like
+      @recipe = Recipe.all.find_by(id: params[:id])
+      @like = Like.create(user_id: Actual.user.id, recipe_id: @recipe.id)
+      if @like.save
+          redirect_to recipe_path(@like.recipe_id)
+      else
+          redirect_to recipe_path(@like.recipe_id), alert: "Hubo un error al likear la receta."
+      end
+  end
+
+  def unlike
+    @like = Actual.user.likes.find_by(id: params[:id])
+    @recipe = Recipe.all.find_by(id: @like.recipe_id)
+    @like.destroy
+    redirect_to recipe_path(@recipe)
+  end
+
   private
 
   def create_or_delete_recipe_tags(recipe, tags)

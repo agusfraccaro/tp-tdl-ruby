@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_12_024914) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_14_234542) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -58,6 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_024914) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "recipe_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_likes_on_recipe_id"
+    t.index ["user_id", "recipe_id"], name: "index_likes_on_user_id_and_recipe_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "nombre"
     t.integer "user_id", null: false
@@ -93,6 +103,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_12_024914) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "recipes"
+  add_foreign_key "likes", "users"
   add_foreign_key "recipes", "users"
   add_foreign_key "taggables", "recipes"
   add_foreign_key "taggables", "tags"
