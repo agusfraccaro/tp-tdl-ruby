@@ -6,10 +6,10 @@
                 <th class="text-center nombre-columns">Nombre</th>
                 <th class="text-center descripcion-columns">Descripción</th>
                 <th class="text-center tags-columns">Categorías</th>
+                <th>Likes </th>
                 <% if buttons %>
                     <th>Acciones </th> 
                 <% end %>
-                <th>Likes </th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +29,9 @@
                             <span class="tag"> <%= tag.name.capitalize %> </span>
                         <% end %>
                     </td>
+                    <td>
+                        <%= recipe.likes.count %>
+                    </td>
                     <% if buttons %>
                         <td>
                             <%= link_to edit_recipe_path(recipe), class: "btn btn-warning" do %>
@@ -39,9 +42,6 @@
                             <% end %>
                         </td>
                     <% end %>
-                    <td>
-                        <%= recipe.likes.count %>
-                    </td>
                 </tr>
             <% end %>
         </tbody>
