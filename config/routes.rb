@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   get 'cookpedia', to: 'cookpedia#index'  
 
   post 'recipe/new', to: 'recipe#create'
