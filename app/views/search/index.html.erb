@@ -1,8 +1,8 @@
 <h1 class="text-center"><%= pluralize(@recipes.count, "Resultado") %> </h1>
 <%= render 'search/form' %>
 <div class="container">
-    <table class="table table-striped">
-        <thead>
+    <table class="table table-hover align-middle">
+        <thead class="table-dark">
             <tr>
                 <th> <%= sort_link(@query, :nombre, "Nombre", default_order: :asc) %> </th>
                 <th> <%= sort_link(@query, :user_name, "Usuarios") %> </th>
