@@ -1,0 +1,28 @@
+<h1 class="text-center"><%= pluralize(@recipes.count, "Resultado") %> </h1>
+<%= render 'search/form' %>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th> <%= sort_link(@query, :nombre, "Nombre", default_order: :asc) %> </th>
+                <th> <%= sort_link(@query, :user_name, "Usuarios") %> </th>
+                <th> <%= sort_link(@query, :tags_name, "Categorías") %> </th>
+                <th> <%= sort_link(@query, :action_text_rich_text_body, "Descripción") %> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @recipes.each do |recipe| %>
+                <tr>
+                    <td> <%= link_to recipe.nombre, recipe %> </td>
+                    <td> <%= recipe.user.nombre %> </td>
+                    <td> 
+                        <% recipe.tags.each do |tag| %> 
+                            <span class="tag"> <%= tag.name.capitalize %> </span>
+                        <% end %>
+                    </td>
+                    <td> <%= recipe.content %> </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
