@@ -2,8 +2,10 @@
     <h5> Usuario: <%= User.find_by(id: comment.user_id).nombre %> </h5>
     <p>
         <%= comment.content %>
-        <%= button_to recipe_comment_path(comment), method: :delete, class: 'btn btn-danger' do %>
-            <i class="bi bi-trash"></i>
+        <% if Actual.user.comments.find_by(id: comment.id) %>
+            <%= button_to recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: 'btn btn-danger' do %>
+                <i class="bi bi-trash"></i>
+            <% end %>
         <% end %>
     </p>
 </li>

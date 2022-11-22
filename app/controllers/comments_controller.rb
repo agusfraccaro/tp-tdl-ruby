@@ -13,7 +13,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    
+    Comment.find_by(id: params[:id]).destroy
+    redirect_to recipe_path(params[:recipe_id]), notice: 'El comentario ha sido eliminado.'
   end
 
   private
