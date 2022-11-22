@@ -1,15 +1,16 @@
 
     
 <div class="row m-0 justify-content-center align-items-center" style='display:flex'>
-    <div class="col-md-6 col-auto p-5" style='background-color:white ; border-radius:10%'>  
-        <h1>Bienvenido a Cookpedia</h1>
-   
-   
-        <%= link_to "Inicia Sesión!", login_path, class: "btn btn-lg btn-primary" %>
-        <%= link_to "Registrate!", signup_path, class: "btn btn-lg btn-primary" %>
+    <div class="col-md-6 col-auto p-5" style='background-color:rgba(199, 199, 199, 0.85) ; border-radius:5%'>  
+        <h1 >Bienvenido a Cookpedia</h1>
+
+        <div class="mb-3">
+            <%= link_to "Inicia Sesión!", login_path, class: "btn btn-lg btn-primary" %>
+            <%= link_to "Registrate!", signup_path, class: "btn btn-lg btn-primary" %>
+        </div>
         
         <%= link_to "Sobre Cookpedia", about_path  %>
-        
+
     </div>
 </div>
 
