@@ -16,7 +16,7 @@ RUN gem install rails bundler
 RUN bundle install
 
 # Prepeare db
-RUN rails db:migrate:up
+RUN rails db:prepare
 RUN rails db:migrate
 
 # Expose port
