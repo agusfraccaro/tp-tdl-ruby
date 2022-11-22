@@ -6,6 +6,10 @@
                 <th class="text-center nombre-columns">Nombre</th>
                 <th class="text-center descripcion-columns">Descripción</th>
                 <th class="text-center tags-columns">Categorías</th>
+                <th>Likes </th>
+                <% if buttons %>
+                    <th>Acciones </th> 
+                <% end %>
             </tr>
         </thead>
         <tbody>
@@ -22,23 +26,20 @@
                     <td> <%= recipe.content %> </td>
                     <td> 
                         <% recipe.tags.each do |tag| %> 
-                            <%
-=begin%>
- <%= link_to tag %> 
-<%
-=end%>
-                                <span class="tag"> <%= tag.name.capitalize %> </span>
-                            <%
-=begin%>
- <% end %> 
-<%
-=end%>
+                            <span class="tag"> <%= tag.name.capitalize %> </span>
                         <% end %>
+                    </td>
+                    <td>
+                        <%= recipe.likes.count %>
                     </td>
                     <% if buttons %>
                         <td>
-                            <%= link_to "Editar", edit_recipe_path(recipe), class: "btn btn-warning" %>
-                            <%= button_to "Eliminar", recipe , method: :delete, class: "btn btn-danger" %>
+                            <%= link_to edit_recipe_path(recipe), class: "btn btn-warning" do %>
+                                <i class="bi bi-pencil-square"></i>
+                            <% end %>
+                            <%= button_to recipe , method: :delete, class: "btn btn-danger" do%>
+                                <i class="bi bi-trash"></i>
+                            <% end %>
                         </td>
                     <% end %>
                 </tr>

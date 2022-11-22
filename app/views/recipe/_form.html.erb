@@ -12,15 +12,15 @@
     </div>
 
     <div class="mb-3">
+        <%= form.label :tags, "Categorías" %>
+        <%= form.text_field :tags, value: recipe.tags.map(&:name).join(',') %>
+    </div>
+
+    <div class="mb-3">
         <%= form.label :image, "Foto de la Receta" %>
         <%= form.file_field :image, accept:"image/jpg, image/jpeg" %>
     </div>
 
-    <div class="mb-3">
-        <%= form.label :tag, "Categorías" %>
-        <%= form.text_field :tag, value: recipe.tags.map(&:name).join(',') %>
-    </div>
-    
     <%= form.submit "Guardar", class: "btn btn-primary" %>
     <%= link_to "Cancelar", recipe_index_path, method: :get, class:"btn btn-danger" %>
 <% end %>

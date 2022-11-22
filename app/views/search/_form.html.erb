@@ -1,0 +1,7 @@
+<%= search_form_for(@query, url: search_path, method: :get, class: 'd-flex') do |f| %>
+    <%= f.search_field :nombre_or_user_nombre_or_tags_name_or_action_text_rich_text_body_i_cont_any, 
+        placeholder: "Search...", class: 'form-control me-2' %>
+    <%= button_tag( :class => "btn") do %>
+        <i class="bi bi-search"></i>
+    <% end %>
+<% end %>

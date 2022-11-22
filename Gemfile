@@ -70,3 +70,5 @@ group :test do
 end
 
 gem "execjs", "~> 2.8"
+
+gem "ransack", "~> 3.2"
