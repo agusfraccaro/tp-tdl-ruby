@@ -1,11 +1,11 @@
 <li class="list-group-item">
     <h5> Usuario: <%= User.find_by(id: comment.user_id).nombre %> </h5>
     <p>
-        <%= comment.content %>
-        <% if Actual.user.comments.find_by(id: comment.id) %>
-            <%= button_to recipe_comment_path(comment.recipe_id, comment.id), method: :delete, class: 'btn btn-danger' do %>
-                <i class="bi bi-trash"></i>
-            <% end %>
-        <% end %>
+        <%= comment.content %>  
     </p>
+    <% if Actual.user.comments.find_by(id: comment.id) %>
+        <%= button_to recipe_comment_path(comment.recipe_id, comment.id), method: :delete, style:"float:right", class: 'btn btn-danger' do %>
+            <i class="bi bi-trash"></i>
+        <% end %>
+    <% end %>
 </li>
