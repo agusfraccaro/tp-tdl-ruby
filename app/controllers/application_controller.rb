@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
         unless Actual.user.present?
-            flash[:alert] = "Debes iniciar sesión para acceder a esta página."
-            redirect_to root_path
+            redirect_to root_path, alert: "Debes iniciar sesión para acceder a esta página."
         end
     end
 end
