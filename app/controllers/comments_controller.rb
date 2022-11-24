@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def show
     @recipe = Recipe.find_by(id: params[:id])
+    @pagy, @comments = pagy(Recipe.find_by(id: params[:id]).comments)
   end
 
   def create

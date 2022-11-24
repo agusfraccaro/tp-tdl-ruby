@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include Pagy::Backend
     before_action :set_user_actual
     before_action :set_query
 

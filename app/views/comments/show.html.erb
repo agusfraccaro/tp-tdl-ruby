@@ -1,9 +1,11 @@
 <%= render 'layouts/navtabs', recipe: @recipe %>
 <ul class="list-group list-group-flush">
-    <% @recipe.comments.each do |comment| %>
+    <% @comments.each do |comment| %>
         <%= render 'comments/comment', comment: comment %>
     <% end %>
 </ul>
+
+<%== pagy_bootstrap_nav(@pagy) %>
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentario_modal">
     Comentar
 </button>
