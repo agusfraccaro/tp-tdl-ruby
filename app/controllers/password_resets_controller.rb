@@ -1,4 +1,4 @@
-class PasswordResetController < ApplicationController
+class PasswordResetsController < ApplicationController
     def new
     end
 
@@ -6,7 +6,7 @@ class PasswordResetController < ApplicationController
         @user = User.find_by(mail: params[:mail])
 
         if @user.present?
-            PasswordMailer.with(user: @user).reset.deliver_now
+            PasswordMailer.with(user: @user).reset.deliver_later
         end
 
         redirect_to root_path, notice: "Si existe una cuenta registrada a ese mail, se enviará un link para cambiar la contraseña."

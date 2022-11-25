@@ -26,7 +26,7 @@
                     <td> <%= recipe.content %> </td>
                     <td> 
                         <% recipe.tags.each do |tag| %> 
-                            <span class="tag"> <%= tag.name.capitalize %> </span>
+                            <span class="badge text-bg-secondary"> <%= tag.name.capitalize %> </span>
                         <% end %>
                     </td>
                     <td>

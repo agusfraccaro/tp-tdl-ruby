@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to cookpedia_path
         else 
-            flash[:alert] = "Mail o contraseña inválidos."
-            render :new
+            redirect_to login_path, alert: "Mail o contraseña inválidos."
         end
     end
 
