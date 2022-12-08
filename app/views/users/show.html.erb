@@ -1,6 +1,18 @@
 <div class="row m-0 justify-content-center align-items-center">
     <div class="col-md-6 col-auto p-5 contenedor" >  
-        <h1> Perfil </h1>
+        <h3> Perfil </h3>
+        <div class="col-sm-8">
+            <p> Nombre: <%= Actual.user.nombre %> </p>
+        </div>
+        <div class="col-sm-8">
+            <p> Mail: <%= Actual.user.mail %> </p>
+        </div>
+        <div class="col-sm-8">
+            <p> Recetas publicadas: <%= Actual.user.recipes.count %> </p>
+        </div>
+        <div class="col-sm-8">
+            <p> Miembro desde: <%= Actual.user.created_at %> </p>
+        </div>
         <%= link_to edit_user_path, class: 'btn btn-primary' do %>
             <i class="bi bi-pencil-square"></i>
         <% end %>
