@@ -1,0 +1,2 @@
+module NextHolidayHelper
+end

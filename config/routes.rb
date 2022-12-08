@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'search', to: 'search#index'
   resources :tags
-  get 'cookpedia', to: 'cookpedia#index'  
+  get 'cookpedia', to: 'cookpedia#index'
 
   post 'recipe/new', to: 'recipe#create'
   patch 'recipe/:id/edit', to: 'recipe#update'
