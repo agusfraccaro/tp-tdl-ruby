@@ -1,38 +1,25 @@
-<div class="row col-sm-12">
-    <div class="col-sm-6">
-        <div class="card" style="width: 18rem;">
-            <image src="<%= url_for(@recipe.image) %>" >
-            <div class="card-body">
-                <h5 class="card-title"> <%= @recipe.nombre %> </h5>
-                <p class="card-text"> <%= @recipe.content %> </p>
-                <div> 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#comentario_modal">
-                        Comentar
-                    </button>
-                    <% like = Actual.user.likes.find_by(recipe_id: @recipe.id) %>
-                    <% if like.nil?  %>
-                        <%= button_to like_path(@recipe), method: :post, class: 'btn' do %>
-                            <i class="bi bi-hand-thumbs-up"></i>
-                        <% end %>
-                    <% else %>
-                        <%= button_to like_path(like), method: :delete, class: 'btn' do %>
-                            <i class="bi bi-hand-thumbs-down"></i>
-                        <% end %>
-                    <% end %>
-                </div>
-            </div>
+<div style="background-color:white">
+    <%= render 'layouts/navtabs', recipe: @recipe %>
+    <div class="row col-sm-12" style="margin-top:20px;">
+        <div class="col-sm-3">
+            <image src="<%= url_for(@recipe.image) %>" class="img-fluid">
         </div>
-
-        
-    </div>
-
-    <div class="col-sm-6">
-        <h3>Comentarios: </h3>
-        <% @recipe.comments.each do |comment| %>
-            <ul class="list-group" >
-                <%= render 'comments/comment', comment: comment %>
-            </ul>
-        <% end %>
+        <div class="col-sm-8">
+        <h4> <%= @recipe.nombre %> </h4>
+        <p> <%= @recipe.content %> </p>
+        </div>
+        <div class="col-sm-1">
+            <% like = Actual.user.likes.find_by(recipe_id: @recipe.id) %>
+            <% if like.nil?  %>
+                <%= button_to like_path(@recipe), method: :post, class: 'btn' do %>
+                    <i class="bi bi-hand-thumbs-up"></i>
+                <% end %>
+            <% else %>
+                <%= button_to like_path(like), method: :delete, class: 'btn' do %>
+                    <i class="bi bi-hand-thumbs-down"></i>
+                <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
 

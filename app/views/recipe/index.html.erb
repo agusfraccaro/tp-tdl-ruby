@@ -1,10 +1,17 @@
-<div style="display: flex">
-    <h1>Mis Recetas </h1>
-    <h1>
-        <%= button_to new_recipe_path, method: :get, class: "btn" do%>
-            <i class="bi bi-plus-square"></i>
-        <% end %>
-    </h1>
-</div>
+<div style="display: flex;">
 
-<%= render 'layouts/table', recipes: @recipes, buttons:true %>
+    <div style="display: flex; flex-direction: column; width: 100%; align-content: center;">
+        <div style="display: flex; align-items: center;">
+
+            <h1> &nbsp Mis Recetas </h1>
+            <div style="display: inline-block;">
+                <%= button_to new_recipe_path, method: :get, class: "btn" do%>
+                    <i class="bi bi-plus-square"></i>
+                <% end %>
+            </div>
+        </div>
+
+        <%= render 'layouts/table', recipes: @recipes, buttons:true %>
+    </div>
+
+</div>

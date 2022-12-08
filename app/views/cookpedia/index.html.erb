@@ -1,10 +1,21 @@
-<div style="display: flex">
-    <h1> Recetas </h1>
-    <h1>
-        <%= button_to new_recipe_path, method: :get, class: "btn" do%>
-            <i class="bi bi-plus-square"></i>
-        <% end %>
-    </h1>
-</div>
 
-<%= render 'layouts/table', recipes: @recipes, buttons:false %>
+
+<div style="display: flex;">
+    <div style="display: flex; flex-direction: column; width: 100%; align-content: center;">
+
+        <div style="display: flex; align-items: center;">
+            <h1> &nbspRecetas </h1>
+            <div style="display: inline-block;">
+                <%= button_to new_recipe_path, method: :get, class: "btn" do%>
+                    <i class="bi bi-plus-square"></i>
+                <% end %>
+            </div>
+        </div>
+
+        <%= render 'layouts/table', recipes: @recipes, buttons:false %>
+    </div>
+
+    <%= render 'layouts/next_holiday', next_holiday: @next_holiday, recipes: @recipes %>
+
+
+</div>

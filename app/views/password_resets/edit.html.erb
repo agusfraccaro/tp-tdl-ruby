@@ -1,4 +1,4 @@
-<h1> Cambia tu contraseña</h1>
+<h1>&nbsp Cambia tu contraseña &nbsp</h1>
 
 <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
     <%= render "layouts/msj_errores", form: form %>
@@ -10,5 +10,9 @@
     <div class="mb-3">
         <%= form.label :password_confirmation, "Confirmar contraseña" %>
         <%= form.password_field :password_confirmation, class:"form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.submit "Cambiar contraseña", class: 'btn btn-primary' %>
     </div>
 <% end %>

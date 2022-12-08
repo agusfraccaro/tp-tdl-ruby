@@ -1,2 +1,16 @@
-<h1>Comments#show</h1>
-<p>Find me in app/views/comments/show.html.erb</p>
+<div style="background-color:white">
+    <%= render 'layouts/navtabs', recipe: @recipe %>
+    <ul class="list-group list-group-flush">
+        <% @comments.each do |comment| %>
+            <%= render 'comments/comment', comment: comment %>
+        <% end %>
+    </ul>
+
+    <% if @comments.any? %>
+        <%== pagy_bootstrap_nav(@pagy) %>
+    <% end %>
+    <button type="button" class="btn btn-primary" style="margin-left: 50%;" data-bs-toggle="modal" data-bs-target="#comentario_modal">
+        Comentar
+    </button>
+    <%= render 'comments/add_comment', recipe: @recipe %>
+</div>

@@ -14,13 +14,16 @@
  *= require_self
  */
 @import "bootstrap";
-
-.tag {
-   background: lightcoral;
-   color: black;
-   padding: 0.5em;
-   margin: 0,5em;
-   border-radius: 25%;
-   display: inline-block;
-}
  
+body { 
+   background-image: image-url('fondo4.jpg');
+}
+
+.contenedor{
+   background-color:rgba(199, 199, 199, 0.85); 
+   border-radius: 5%
+}
+
+table td>a,table td>img,table td>div{
+   margin-left: 25%;
+}

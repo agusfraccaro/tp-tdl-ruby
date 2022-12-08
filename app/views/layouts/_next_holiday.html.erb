@@ -1,0 +1,29 @@
+<div style="display: flex; flex-direction: column; width: 25%; background-color: rgba(0, 0, 0, 0.75); margin-left:5%; padding:1%; border-radius: 30px;">
+    <h2 style="font-size: 20px; padding: 5%; color: white;"> &nbsp Recetas estacionales </h2>
+
+    <div style="display: flex; flex-direction: column;">
+        <p style="color: yellow;">Proximo evento: </p>
+        <p style="color: white;text-align: center"> "<%= next_holiday["localName"] %>" </p>
+        <p style="color: #D3D3D3; font-size: 10px"> Fecha: <%= next_holiday["date"] %></p>
+
+    </div>
+
+     <tbody style= 'background-color:whitesmoke'>
+            <% recipes.each do |recipe| %>
+                <% recipe.tags.each do |tag|%>
+                    <% if tag.name == next_holiday["localName"]%>
+                        <div style="display: flex;flex-direction: column; padding:10%;background-color: rgba(0, 0, 0, 0.9);border-radius: 30px;margin-bottom:5%;">
+                            <tr>
+                                <td>
+                                    <p style="color: white;"> Receta: <%= link_to recipe.nombre, recipe_path(recipe) %> </p>
+                                    <image src="<%= url_for(recipe.image) %>">
+                                </td>
+                            </tr>
+                        </div>
+                    <% end %>
+                 <% end %>
+            <% end %>
+
+
+    </tbody>
+</div>

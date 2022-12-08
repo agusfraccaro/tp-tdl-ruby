@@ -1,5 +1,5 @@
 # Dockerfile.rails
-FROM ruby:3.1.2 AS rails-toolbox
+FROM ruby:3.1.2
 
 # Copy local files
 RUN mkdir /app

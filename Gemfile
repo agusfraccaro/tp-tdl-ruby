@@ -40,6 +40,8 @@ gem 'bootstrap', '~> 5.2.2'
 
 gem 'jquery-rails'
 
+gem 'pagy', '~> 5.10', '>= 5.10.1'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
