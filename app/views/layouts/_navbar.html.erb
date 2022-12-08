@@ -28,7 +28,7 @@
         <li class="nav-item">
           <%= link_to "Mi perfil", user_path(session[:user_id]), class: "nav-link" %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" style="margin-left:20px;">
           <%= button_to "Logout", logout_path, method: :delete, class: "btn btn-outline-secondary" %>
         </li>
         <% else %>
@@ -40,7 +40,7 @@
         </li>
         <% end %>
       </ul>
-    
+
     </div>
   </div>
 </nav>

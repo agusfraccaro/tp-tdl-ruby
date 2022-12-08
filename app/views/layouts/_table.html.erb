@@ -1,4 +1,5 @@
 <div class="table-responsive" style="border-radius: 15px;">
+
     <table class="table table-hover align-middle">
         <thead class="table-dark">
             <tr>
@@ -6,42 +7,59 @@
                 <th class="text-center nombre-columns">Nombre</th>
                 <th class="text-center descripcion-columns">Descripción</th>
                 <th class="text-center tags-columns">Categorías</th>
-                <th>Likes </th>
+                <th class="text-center tags-columns">Likes </th>
                 <% if buttons %>
-                    <th>Acciones </th>
+                    <th class="text-center tags-columns" >Acciones </th>
                 <% end %>
             </tr>
         </thead>
+
         <tbody style= 'background-color:whitesmoke'>
             <% recipes.each do |recipe| %>
                 <tr>
-                    <td> <image src="<%= url_for(recipe.image) %>" height=100> </td>
-                    <td>
-                        <% if !buttons%>
-                            <%= link_to recipe.nombre, recipe_path(recipe) %>
-                        <% else %>
-                            <%= recipe.nombre %>
-                        <% end %>
+                    <td >
+                         <div style="max-height: 100px; max-width: 100px; width: 100px; overflow: auto;">
+                            <image src="<%= url_for(recipe.image) %>" width=100px height=100px display=block>
+                        <div>
                     </td>
-                    <td> <%= recipe.content %> </td>
-                    <td>
-                        <% recipe.tags.each do |tag| %>
-                            <span class="badge text-bg-secondary"> <%= tag.name.capitalize %> </span>
-                        <% end %>
+                    <td style="overflow-y: scroll;">
+                        <div style="max-height: 100px; max-width: 80px; width: 80px; overflow: auto;">
+
+                            <% if !buttons%>
+                                <p style="text-align:center"><%= link_to recipe.nombre, recipe_path(recipe) %></p>
+                            <% else %>
+                                <p style="text-align=:enter"><%= recipe.nombre %></p>
+                            <% end %>
+                        <div>
+
                     </td>
                     <td>
-                        <%= recipe.likes.count %>
+                        <div style="max-height: 100px; max-width: 300px; width: 300px; overflow: auto;">
+                            <%= recipe.content %>
+                        <div>
+                    </td>
+                    <td>
+                        <div style="max-height: 100px; max-width: 100px; width: 100px; overflow: auto;">
+                            <% recipe.tags.each do |tag| %>
+                                <span style="display: inline-block;word-break: break-all;" class="badge text-bg-secondary"> <%= tag.name.capitalize %> </span>
+                            <% end %>
+                         <div>
+                    </td>
+                    <td>
+                        <p style="text-align:center"><%= recipe.likes.count %></p>
                     </td>
                     <% if buttons %>
                         <td>
-                            <%= link_to edit_recipe_path(recipe), :style => "margin: 0;", class: "btn btn-warning" do %>
-                                <i class="bi bi-pencil-square"></i>
-                            <% end %>
-                            <div style="margin: 25%;">
+                            <div style="display:flex;flex-direction: column; align-content: center; justify-content: center">
+                                <%= link_to edit_recipe_path(recipe), :style => "margin: 0; width:50%;", class: "btn btn-warning" do %>
+                                    <i class="bi bi-pencil-square"></i>
+                                <% end %>
+                                <div style="margin: 5%;">
+                                </div>
+                                <%= button_to recipe, :style => "margin: 0;width:50%;", method: :delete, class: "btn btn-danger" do%>
+                                    <i class="bi bi-trash"></i>
+                                <% end %>
                             </div>
-                            <%= button_to recipe, :style => "margin: 0;", method: :delete, class: "btn btn-danger" do%>
-                                <i class="bi bi-trash"></i>
-                            <% end %>
                         </td>
                     <% end %>
                 </tr>
