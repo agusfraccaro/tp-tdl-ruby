@@ -1,20 +1,29 @@
 <div class="row m-0 justify-content-center align-items-center">
-    <div class="col-md-6 col-auto p-5 contenedor" >  
+    <div class="col-md-6 col-auto p-5 contenedor" >
         <h3> Perfil </h3>
+
+       <div style="display:flex;margin-bottom:5%;justify-content:right;">
+            <%= link_to edit_user_path, class: 'btn btn-primary' do %>
+                <i class="bi bi-pencil-square"></i>
+            <% end %>
+        </div>
+
+        <div style="display:flex;margin-bottom:5%;justify-content:center;">
+            <%= image_tag "blanck-profile.webp",  style: "width: 30%; border-radius: 100px;" %>
+        </div>
+
         <div class="col-sm-8">
-            <p> Nombre: <%= Actual.user.nombre %> </p>
+            <p> <b>Nombre:</b> <%= Actual.user.nombre %> </p>
         </div>
         <div class="col-sm-8">
-            <p> Mail: <%= Actual.user.mail %> </p>
+            <p> <b>Mail:</b> <%= Actual.user.mail %> </p>
         </div>
         <div class="col-sm-8">
-            <p> Recetas publicadas: <%= Actual.user.recipes.count %> </p>
+            <p> <b>Recetas publicadas:</b> <%= Actual.user.recipes.count %> </p>
         </div>
         <div class="col-sm-8">
-            <p> Miembro desde: <%= Actual.user.created_at %> </p>
+            <p> <b>Miembro desde:</b> <%= Actual.user.created_at %> </p>
         </div>
-        <%= link_to edit_user_path, class: 'btn btn-primary' do %>
-            <i class="bi bi-pencil-square"></i>
-        <% end %>
+
     </div>
 </div>

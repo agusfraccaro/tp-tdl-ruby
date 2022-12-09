@@ -1,14 +1,22 @@
-<div style="background-color:white">
+<div style="display:flex; justify-content:center; flex-direction:column; align-items:center;">
     <%= render 'layouts/navtabs', recipe: @recipe %>
-    <div class="row col-sm-12" style="margin-top:20px;">
-        <div class="col-sm-3">
+
+    <div style="display:flex;height: 5%">
+    </div>
+
+    <div style="background-color: rgba(255, 255, 255, 0.95); display:flex; flex-direction:column; width:50%; padding: 5%; border-radius: 30px;">
+        <h4 style="margin-bottom:5%;"> <%= @recipe.nombre %> </h4>
+
+        <div style="display:flex;margin-bottom:5%;justify-content:center;">
             <image src="<%= url_for(@recipe.image) %>" class="img-fluid">
         </div>
+
         <div class="col-sm-8">
-        <h4> <%= @recipe.nombre %> </h4>
         <p> <%= @recipe.content %> </p>
         </div>
-        <div class="col-sm-1">
+
+        <div style="display:flex;align-items:center;background-color:rgba(0, 0, 0, 0.2);width:80px;border-radius:60px;padding-left:10px;padding-right:5%;">
+            Like
             <% like = Actual.user.likes.find_by(recipe_id: @recipe.id) %>
             <% if like.nil?  %>
                 <%= button_to like_path(@recipe), method: :post, class: 'btn' do %>

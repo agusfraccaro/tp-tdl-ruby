@@ -1,8 +1,9 @@
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-    <%= link_to "Receta",  recipe_path(recipe), class: "nav-link active" %>
-  </li>
-  <li class="nav-item">
-    <%= link_to "Comentarios",  recipe_comment_path(recipe), class: "nav-link" %>
-  </li>
-</ul>
+<div style="background-color: rgba(0, 0, 0, 0.75); display:flex; margin-top:5%; justify-content:center; width:50%;border-radius: 30px;">
+
+  <ul class="nav justify-content-center">
+
+      <%= link_to "Receta",  recipe_path(recipe), class: "nav-link active" %>
+      <%= link_to "Comentarios",  recipe_comment_path(recipe), class: "nav-link" %>
+
+  </ul>
+</div>
