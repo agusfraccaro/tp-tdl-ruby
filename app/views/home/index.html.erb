@@ -2,6 +2,10 @@
     <div style="display:inline; flex-direction:column; justify-content:center;" class="col-md-6 col-auto p-5 contenedor">
         <h1 >Bienvenido a Cookpedia</h1>
 
+        <div style="display:flex;margin-bottom:5%;justify-content:center;">
+            <%= image_tag "chef.webp",  style: "width: 40%; border-radius: 30px;" %>
+        </div>
+
         <div style="display:flex; justify-content:center" class="mb-3">
             <div style="display:flex; width: 30%; justify-content:center;">
                 <%= link_to "Inicia Sesión!", login_path, class: "btn btn-lg btn-primary" %>
@@ -12,7 +16,9 @@
 
         </div>
 
-        <%= link_to "Sobre Cookpedia", about_path  %>
+        <div style="display:flex;margin-bottom:5%;justify-content:center;">
+            <%= link_to "Sobre Cookpedia", about_path  %>
+        </div>
     </div>
 </div>
 
