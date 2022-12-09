@@ -51,12 +51,12 @@
                     <% if buttons %>
                         <td>
                             <div style="display:flex;flex-direction: column; align-content: center; justify-content: center">
-                                <%= link_to edit_recipe_path(recipe), :style => "margin: 0; width:50%;", class: "btn btn-warning" do %>
+                                <%= link_to edit_recipe_path(recipe), :style => "margin: 0; width:40px;", class: "btn btn-warning" do %>
                                     <i class="bi bi-pencil-square"></i>
                                 <% end %>
                                 <div style="margin: 5%;">
                                 </div>
-                                <%= button_to recipe, :style => "margin: 0;width:50%;", method: :delete, class: "btn btn-danger" do%>
+                                <%= button_to recipe, :style => "margin: 0;width:40px;", method: :delete, class: "btn btn-danger" do%>
                                     <i class="bi bi-trash"></i>
                                 <% end %>
                             </div>
