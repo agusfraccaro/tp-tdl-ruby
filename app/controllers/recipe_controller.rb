@@ -1,9 +1,19 @@
+require 'uri'
+require 'net/http'
+require 'json'
+
 class RecipeController < ApplicationController
   before_action :require_login
   before_action :set_receta, only: [:edit, :update, :destroy]
 
+
+
   def index
     @recipes = Actual.user.recipes
+
+    uri_random_product = URI('https://robotoff.openfoodfacts.org/api/v1/questions/random?lang=es&count=1')
+    res = Net::HTTP.get_response(uri_random_product)
+    @random_product  = res.is_a?(Net::HTTPSuccess) ? JSON.parse(res.body)["questions"][0] : "No se encontro un producto"
   end
 
   def new
